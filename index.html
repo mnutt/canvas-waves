@@ -1,17 +1,5 @@
 <html>
   <head>
-
-    <script type='text/javascript'>
-      var canvas = document.getElementById('canvas');
-      var ctx = canvas.getContext('2d');
-
-      function draw() {
-        // draw here
-      }
-
-      draw();
-    </script>
-
     <style>
       body {
         margin: 0;
@@ -28,6 +16,29 @@
 
   <body>
     <h1>Waves</h1>
+
     <canvas id="canvas" width="400" height="400"></canvas>
+
+    <script type='text/javascript'>
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
+
+      var width = window.innerWidth; 
+      var height = window.innerHeight;
+
+      function draw() {
+        ctx.fillStyle = ("#000000");
+
+        ctx.moveTo(0, 100);
+        ctx.lineTo(width, 100);
+        ctx.lineTo(width, height);
+        ctx.lineTo(0, height);
+        ctx.lineTo(0, 100);
+
+        ctx.closePath();
+        ctx.fill();
+      }
+      draw();
+    </script>
   </body>
 </html>
