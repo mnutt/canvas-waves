@@ -32,13 +32,14 @@
         canvas.width = canvas.width;
         ctx.fillStyle = ("rgba(0, 0, 0, 0.4)");
 
-        var randomLeft = Math.abs(Math.sin(i/100)) * 500;
-        var randomRight = Math.abs(Math.sin((i/100) + 10)) * 500;
-        var randomLeftConstraint = Math.abs(Math.sin((i/100)+2)) * 500;
-        var randomRightConstraint = Math.abs(Math.sin((i/100)+1)) * 500;
+        var randomLeft = Math.abs(Math.pow( Math.sin(i/100), 2 )) * 200;
+        var randomRight = Math.abs(Math.pow( Math.sin((i/100) + 10), 2 )) * 200;
+        var randomLeftConstraint = Math.abs(Math.pow( Math.sin((i/100)+2), 2 )) * 200;
+        var randomRightConstraint = Math.abs(Math.pow( Math.sin((i/100)+1), 2)) * 200;
 
         ctx.beginPath();
         ctx.moveTo(0, randomLeft);
+
         // ctx.lineTo(canvas.width, randomRight);
         ctx.bezierCurveTo(canvas.width / 3, randomLeftConstraint, canvas.width / 3 * 2, randomRightConstraint, canvas.width, randomRight);
         ctx.lineTo(canvas.width , canvas.height);
@@ -50,7 +51,7 @@
 
         i++;
       }
-      setInterval("draw()", 200);
+      setInterval("draw()", 20);
     </script>
   </body>
 </html>
