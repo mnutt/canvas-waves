@@ -31,11 +31,12 @@
 
         var randomLeft = 300;
         var randomRight = 100;
-        var randomConstraint = 500;
+        var randomLeftConstraint = 500;
+        var randomRightConstraint = 50;
 
         ctx.moveTo(0, randomLeft);
         // ctx.lineTo(canvas.width, randomRight);
-        ctx.quadraticCurveTo(canvas.width / 2, randomConstraint, canvas.width, randomRight);
+        ctx.bezierCurveTo(canvas.width / 3, randomLeftConstraint, canvas.width / 3 * 2, randomRightConstraint, canvas.width, randomRight);
         ctx.lineTo(canvas.width , canvas.height);
         ctx.lineTo(0, canvas.height);
         ctx.lineTo(0, randomLeft);
