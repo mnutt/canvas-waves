@@ -35,6 +35,7 @@
         var randomLeftConstraint = Math.floor(Math.random() * 500);
         var randomRightConstraint = Math.floor(Math.random() * 500);
 
+        ctx.beginPath();
         ctx.moveTo(0, randomLeft);
         // ctx.lineTo(canvas.width, randomRight);
         ctx.bezierCurveTo(canvas.width / 3, randomLeftConstraint, canvas.width / 3 * 2, randomRightConstraint, canvas.width, randomRight);
