@@ -42,17 +42,17 @@
 
           var randomLeft = Math.abs(Math.pow( Math.sin(offset/100), 2 )) * 200;
           var randomRight = Math.abs(Math.pow( Math.sin((offset/100) + 10), 2 )) * 200;
-          var randomLeftConstraint = Math.abs(Math.pow( Math.sin((offset/100)+2), 2 )) * 300;
-          var randomRightConstraint = Math.abs(Math.pow( Math.sin((offset/100)+1), 2)) * 300;
+          var randomLeftConstraint = Math.abs(Math.pow( Math.sin((offset/90)+2), 2 )) * 300;
+          var randomRightConstraint = Math.abs(Math.pow( Math.sin((offset/90)+1), 2)) * 300;
 
           ctx.beginPath();
-          ctx.moveTo(0, randomLeft);
+          ctx.moveTo(0, randomLeft + 10);
 
-          // ctx.lineTo(canvas.width, randomRight);
-          ctx.bezierCurveTo(canvas.width / 3, randomLeftConstraint, canvas.width / 3 * 2, randomRightConstraint, canvas.width, randomRight);
+          // ctx.lineTo(canvas.width, randomRight + 10);
+          ctx.bezierCurveTo(canvas.width / 3, randomLeftConstraint, canvas.width / 3 * 2, randomRightConstraint, canvas.width, randomRight + 10);
           ctx.lineTo(canvas.width , canvas.height);
           ctx.lineTo(0, canvas.height);
-          ctx.lineTo(0, randomLeft);
+          ctx.lineTo(0, randomLeft + 10);
 
           ctx.closePath();
           ctx.fill();
