@@ -26,14 +26,16 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
+      var i = 0;
+
       function draw() {
         canvas.width = canvas.width;
         ctx.fillStyle = ("rgba(0, 0, 0, 0.4)");
 
-        var randomLeft = Math.floor(Math.random() * 500);
-        var randomRight = Math.floor(Math.random() * 500);
-        var randomLeftConstraint = Math.floor(Math.random() * 500);
-        var randomRightConstraint = Math.floor(Math.random() * 500);
+        var randomLeft = Math.abs(Math.sin(i/100)) * 500;
+        var randomRight = Math.abs(Math.sin((i/100) + 10)) * 500;
+        var randomLeftConstraint = Math.abs(Math.sin((i/100)+2)) * 500;
+        var randomRightConstraint = Math.abs(Math.sin((i/100)+1)) * 500;
 
         ctx.beginPath();
         ctx.moveTo(0, randomLeft);
@@ -45,6 +47,8 @@
 
         ctx.closePath();
         ctx.fill();
+
+        i++;
       }
       setInterval("draw()", 200);
     </script>
