@@ -35,24 +35,28 @@
 
       function draw() {
         canvas.width = canvas.width;
-        ctx.fillStyle = ("rgba(0, 0, 0, 0.4)");
 
-        var randomLeft = Math.abs(Math.pow( Math.sin(i/100), 2 )) * 200;
-        var randomRight = Math.abs(Math.pow( Math.sin((i/100) + 10), 2 )) * 200;
-        var randomLeftConstraint = Math.abs(Math.pow( Math.sin((i/100)+2), 2 )) * 200;
-        var randomRightConstraint = Math.abs(Math.pow( Math.sin((i/100)+1), 2)) * 200;
+        for(var j = waves.length - 1; j >= 0; j--) {
+          var offset = i + j * Math.PI * 12;
+          ctx.fillStyle = (waves[j]);
 
-        ctx.beginPath();
-        ctx.moveTo(0, randomLeft);
+          var randomLeft = Math.abs(Math.pow( Math.sin(offset/100), 2 )) * 200;
+          var randomRight = Math.abs(Math.pow( Math.sin((offset/100) + 10), 2 )) * 200;
+          var randomLeftConstraint = Math.abs(Math.pow( Math.sin((offset/100)+2), 2 )) * 300;
+          var randomRightConstraint = Math.abs(Math.pow( Math.sin((offset/100)+1), 2)) * 300;
 
-        // ctx.lineTo(canvas.width, randomRight);
-        ctx.bezierCurveTo(canvas.width / 3, randomLeftConstraint, canvas.width / 3 * 2, randomRightConstraint, canvas.width, randomRight);
-        ctx.lineTo(canvas.width , canvas.height);
-        ctx.lineTo(0, canvas.height);
-        ctx.lineTo(0, randomLeft);
+          ctx.beginPath();
+          ctx.moveTo(0, randomLeft);
 
-        ctx.closePath();
-        ctx.fill();
+          // ctx.lineTo(canvas.width, randomRight);
+          ctx.bezierCurveTo(canvas.width / 3, randomLeftConstraint, canvas.width / 3 * 2, randomRightConstraint, canvas.width, randomRight);
+          ctx.lineTo(canvas.width , canvas.height);
+          ctx.lineTo(0, canvas.height);
+          ctx.lineTo(0, randomLeft);
+
+          ctx.closePath();
+          ctx.fill();
+        }
 
         i++;
       }
