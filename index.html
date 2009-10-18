@@ -23,19 +23,21 @@
       var canvas = document.getElementById('canvas');
       var ctx = canvas.getContext('2d');
 
-      var width = window.innerWidth; 
-      var height = window.innerHeight;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
 
       function draw() {
         ctx.fillStyle = ("#000000");
 
-        var randomLeft = 300
-        var randomRight = 100
+        var randomLeft = 300;
+        var randomRight = 100;
+        var randomConstraint = 500;
 
         ctx.moveTo(0, randomLeft);
-        ctx.lineTo(width, randomRight);
-        ctx.lineTo(width, height);
-        ctx.lineTo(0, height);
+        // ctx.lineTo(canvas.width, randomRight);
+        ctx.quadraticCurveTo(canvas.width / 2, randomConstraint, canvas.width, randomRight);
+        ctx.lineTo(canvas.width , canvas.height);
+        ctx.lineTo(0, canvas.height);
         ctx.lineTo(0, randomLeft);
 
         ctx.closePath();
