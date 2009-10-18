@@ -29,11 +29,14 @@
       function draw() {
         ctx.fillStyle = ("#000000");
 
-        ctx.moveTo(0, 100);
-        ctx.lineTo(width, 100);
+        var randomLeft = 300
+        var randomRight = 100
+
+        ctx.moveTo(0, randomLeft);
+        ctx.lineTo(width, randomRight);
         ctx.lineTo(width, height);
         ctx.lineTo(0, height);
-        ctx.lineTo(0, 100);
+        ctx.lineTo(0, randomLeft);
 
         ctx.closePath();
         ctx.fill();
